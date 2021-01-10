@@ -12,12 +12,10 @@ export const ThemeContextProvider = ({ children }) => {
   const [changeTheme, setChangeTheme] = useState(initialState);
 
   const toggleTheme = () => {
-    console.log("hello");
     setChangeTheme((prevState) => ({
       ...prevState,
       isLightTheme: !prevState.isLightTheme,
     }));
-    console.log(changeTheme);
   };
 
   return (
