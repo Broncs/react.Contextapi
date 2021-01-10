@@ -9,10 +9,19 @@ const initialState = {
 };
 
 export const ThemeContextProvider = ({ children }) => {
-  const [isLightTheme, setIsLightTheme] = useState(initialState);
+  const [changeTheme, setChangeTheme] = useState(initialState);
+
+  const toggleTheme = () => {
+    console.log("hello");
+    setChangeTheme((prevState) => ({
+      ...prevState,
+      isLightTheme: !prevState.isLightTheme,
+    }));
+    console.log(changeTheme);
+  };
 
   return (
-    <ThemeContext.Provider value={{ ...isLightTheme }}>
+    <ThemeContext.Provider value={{ ...changeTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
